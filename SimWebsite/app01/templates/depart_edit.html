@@ -1,0 +1,31 @@
+{% extends 'index_layout.html' %}
+{% block title %}用户管理系统 | 部门管理{% endblock %}
+{% block content %}
+<!-- 内容 -->
+<div>
+    <div class="container">
+
+        <!-- 表格面板 -->
+        <div class="panel panel-default">
+            <form method="post">
+                {% csrf_token %}
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    编辑部门
+                </div>
+                <div class="panel-body">
+                    <label for="department-id-input">请输入新的部门名称</label>
+                            <input type="text" id="department-id-input" value="{{ row_object.title }}" 
+                            class="form-control" name="depart-title" placeholder="原标题为：{{ row_object.title }}" aria-describedby="department-name">
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

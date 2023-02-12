@@ -1,0 +1,155 @@
+@import url("/static/css/color_palette.css");
+
+
+
+/* 小按钮 */
+.btn-s {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background: var(--blue-1);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+}
+.btn-s:hover {
+    background: var(--blue-1-hover);
+}
+.btn-s:active {
+    background: var(--blue-1-active);
+}
+
+/* 中按钮 */
+.btn-m {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background: var(--blue-1);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+}
+.btn-m:hover {
+    background: var(--blue-1-hover);
+}
+.btn-m:active {
+    background: var(--blue-1-active);
+}
+
+/* 中按钮-次级 */
+.btn-m-sub {
+    width: 100px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background: var(--blue-1-light);
+    color: var(--blue-1);
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+}
+.btn-m-sub:hover {
+    background: var(--blue-1-hover);
+    color: var(--white);
+}
+.btn-m-sub:active {
+    background: var(--blue-1-active);
+    color: var(--white);
+}
+
+
+/* 大按钮 */
+.btn-l {
+    width: 300px;
+    height: 40px;
+    border-radius: 50px;
+    border: none;
+    background: var(--blue-1);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+}
+.btn-l:hover {
+    background: var(--blue-1-hover);
+}
+.btn-l:active {
+    background: var(--blue-1-active);
+}
+
+
+/* 红按钮 */
+.btn-red {
+    background: var(--red-1);
+}
+.btn-red:hover {
+    background: var(--red-1-hover);
+}
+.btn-red:active {
+    background: var(--red-1-active);
+}
+
+/* 红按钮-次级 */
+.btn-red-sub {
+    background: var(--red-1-light);
+    color: var(--red-1);
+}
+.btn-red-sub:hover {
+    background: var(--red-1-hover);
+    color: var(--white);
+}
+.btn-red-sub:active {
+    background: var(--red-1-active);
+    color: var(--white);
+}
+
+.right-panel {
+
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08); */
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+}
+.list-group-item:first-child {
+    background: var(--blue-1-light);
+    color: var(--blue-1);
+    font-weight: bold;
+}
+
+.bs-example {
+    display: flex;
+    position: relative;
+    padding: 45px 15px 15px;
+    margin: 0 -15px 15px;
+    border-style: solid;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px;
+    /* -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08); */
+}
+
+.bs-example::after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #959595;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    content: "词条";
+
+}

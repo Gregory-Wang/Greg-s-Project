@@ -1,0 +1,43 @@
+{% extends 'index_layout.html' %}
+{% block title %}用户管理系统 | {{ title }}{% endblock %}
+{% block content %}
+<div>
+    <div class="container">
+
+        <!-- 模态框-新建管理员 -->
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h4 class="modal-title" id="myModalLabel">{{ title }}</h4>
+                </div>
+
+                <div class="panel-body">
+                  <div class="form-horizontal">
+
+                    {% for field in form %}
+                    <div class="form-group">
+                      <label for="admin-id-input" class="col-sm-2 control-label">{{ field.label }}</label>
+                      <div class="col-sm-10">
+                        {{ field }}
+                        <span style="color: red;">{{ field.errors.0 }}</span>
+                      </div>
+                    </div>
+                    {% endfor %}
+
+                  </div>
+                </div>
+
+                <div class="panel-footer">
+                  <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+
+            </div>
+        </form>
+
+
+        
+    </div>
+  </div>
+{% endblock %}

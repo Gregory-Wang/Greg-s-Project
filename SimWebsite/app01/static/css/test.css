@@ -1,0 +1,5 @@
+@import url("/static/css/color_palette.css");
+
+.navbar {
+    border-radius: 0;
+}

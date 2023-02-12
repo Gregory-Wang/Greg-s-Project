@@ -1,0 +1,304 @@
+@import url("/static/css/color_palette.css");
+
+
+@font-face{
+    font-family: 'freshsong';
+    src:url("/static/fonts/freshsong.ttf") format("ttf");
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background: var(--white);
+}
+
+button {
+    /* background-color: var(--grey-background); */
+    border: none;
+    margin: 0;
+    background: transparent;
+}
+
+/* ----------框架---------- */
+
+
+.top-bar {
+    z-index: 0;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* ----------顶部横幅---------- */
+
+/* -----背景----- */
+.banner {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 300px;
+    /* background: var(--blue-theme-gradient-deep); */
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.banner::before {
+    position: relative;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/img/mesh-510.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* .banner-img {
+
+    width: 100%;
+    height: auto;
+} */
+
+/* -----导航栏----- */
+.navbar {
+    z-index: 1;
+    top: 0;
+    position: fixed;
+    /* display: flex; */
+    width: 100vw;
+    height: 60px;
+    border-radius: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.08);
+    background: var(--white-op80);
+    align-items: center;
+}
+
+/* .navbar-collapse {
+    background: var(--grey-background);
+} */
+
+/* .line-center {
+    display: flex;
+    align-items: center;
+} */
+
+
+/* -----导航栏按钮----- */
+.nav-button {
+    width: auto;
+    height: 40px;
+    padding: 0px 10px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+}
+.nav-button:hover {
+    background: var(--blue-1);
+    color: var(--white);
+}
+.nav-button:active {
+    background: var(--blue-1-active);
+    color: var(--white);
+}
+
+.navbar-toggle {
+    width: 60px;
+    height: 40px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+}
+.navbar-toggle:hover {
+    background-color: var(--blue-1);
+    color: var(--white);
+}
+.navbar-toggle:active {
+    background-color: var(--blue-1-active);
+    color: var(--white);
+}
+
+
+
+/* 网站标题 */
+.title {
+    display: flex;
+    width: auto;
+    height: 60px;
+    align-items: center;
+    justify-content: flex-start;
+}
+.title span {
+    /* font-family: "freshsong"; */
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.navbar-form {
+    border: none;
+    border-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* 搜索区域 */
+.search {
+    display: flex;
+    width: auto;
+    height: auto;
+    background: transparent;
+    margin: 0;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+/* 输入框 */
+.search-input {
+    width: 300px;
+    height: 40px;
+    margin: 10px 0px 10px 10px;
+    padding: 0px 10px 0px 10px;
+    background: transparent;
+    border: none;
+    outline: transparent;
+
+    font-size: medium;
+    /* overflow和white-space为text-overflow的前提属性 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis ;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+}
+.search-input:hover,
+.search-input:active {
+    
+    background: var(--white);
+}
+.search-input:focus {
+    /* border: 2px solid var(--blue-theme-active); */
+    background: var(--white);
+    outline: 2px solid var(--blue-1);
+}
+
+/* 搜索按钮 */
+.search-button {
+    display: flex;
+    /* position: absolute; */
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    /* right: 0px; */
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0px solid var(--grey-text);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease 0s;
+}
+.search-button:hover {
+    background: var(--white);
+}
+.search-button:active {
+    background: var(--white-op40);
+}
+
+
+/* -----中部横幅内容----- */
+.banner-content {
+    display: flex;
+    width: 100%;
+    height: 220px;
+    align-items: center;
+}
+
+.reco-card {
+    display: flex;
+    width: 300px;
+    height: 180px;
+    padding: 20px 10px 20px 10px;
+    border: 2px solid var(--grey-op10);
+    border-radius: 10px;
+    background: var(--white-op80);
+    flex-direction: column;
+}
+.reco-card span #French {
+    font-size: large;
+}
+.reco-card span #Chinese {
+    
+}
+
+/* ----------数据表格---------- */
+
+/* -----表格容器----- */
+
+
+.form-table {
+    width: 100%;
+    height: fit-content;  
+}
+
+/* 表头项目 */
+table thead tr {
+
+}
+
+table thead tr th {
+    color: var(--grey-text);
+    /* background: var(--blue-1-light); */
+    padding: 10px;
+    top: 0;
+    position: sticky;
+    font-weight: bold;
+    border-bottom: 4px solid var(--grey-background);;
+    
+}
+
+
+/* 表体项 */
+table tbody tr td{
+    padding: 10px;
+    
+    border-collapse: collapse;
+    /* border-top: 1px solid var(--blue-theme-active); */
+}
+
+/* 表体行 */
+table tbody tr {
+
+    cursor: pointer;
+    transition: all 0.1s ease 0s;
+}
+/* table tbody tr:hover {
+    background-color: var(--blue-1-light);
+    color: var(--blue-1);
+
+}
+table tbody tr:active {
+    background-color: var(--blue-1);
+    color: var(--white);
+
+} */
+
+
+    

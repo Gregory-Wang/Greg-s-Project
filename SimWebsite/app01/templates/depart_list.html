@@ -1,0 +1,76 @@
+{% extends 'index_layout.html' %}
+{% block title %}用户管理系统 | 部门管理{% endblock %}
+{% block content %}
+<!-- 内容 -->
+<div>
+  <div class="container">
+
+      <!-- 按钮-新建部门 -->
+      <div style="margin-bottom: 10px">
+          <!-- Button trigger modal -->
+          <a class="btn btn-success" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-plus-sign" style="padding-right: 5px;" aria-hidden="true"></span>新建部门</a>
+          <!-- <a href="/depart/add/" target="_blank" class="btn btn-primary">新建部门</a> -->
+      </div>
+
+      <!-- 模态框-新建部门 -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <form method="post">
+                {% csrf_token %}
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新建部门</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <label for="department-id-input">请输入添加的部门名称</label>
+                        <input type="text" id="department-id-input" class="form-control" name="depart-title" placeholder="部门名称" aria-describedby="department-name">
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+      </div>
+
+
+      <!-- 表格面板 -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+              部门列表
+          </div>
+          <div class="panel-body">
+              <span>留白区域</span>
+          </div>
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>名称</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for obj in queryset %}
+                <tr>
+                  <th scope="row">{{ obj.id }}</th>
+                  <td>{{ obj.title }}</td>
+                  <td>
+                      <a class="btn btn-primary btn-xs" href="/depart/{{ obj.id }}/edit/">编辑</a>
+                      <a class="btn btn-danger btn-xs" href="/depart/delete/?nid={{ obj.id }}">删除</a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+:root {
+    --white: #ffffff;
+    --white-op80: rgba(255, 255, 255, 0.80);
+    --white-op40: rgba(255, 255, 255, 0.40);
+    --white-op10: rgba(255, 255, 255, 0.10);
+
+    --grey-op80: rgba(33, 33, 33, 0.8);
+    --grey-op40: rgba(33, 33, 33, 0.4);
+    --grey-op10: rgba(33, 33, 33, 0.1);
+
+    --grey-text: #333333;
+    --grey-text-sub: #4f4f4f;
+    --grey-background: #f2f2f2;
+    --blue-theme: #C9EAF7;
+    --blue-theme-active: #d6f4ff;
+    --blue-theme-deep: #0071BC;
+    --blue-theme-gradient: linear-gradient(180deg, #C9EAF7 0%, #FFFFFF 100%);
+    --blue-theme-gradient-deep: linear-gradient(90deg, #C9EAF7 0%, #0071BC 100%);
+
+    --blue-1: rgb(49, 130, 237);
+    --blue-1-light: hsl(214, 84%, 95%);
+    --blue-1-hover: hsl(214, 84%, 64%);
+    --blue-1-active: hsl(214, 84%, 40%);
+    --blue-2: #2D9CDB;
+    --blue-3: #56CCF2;
+
+    --red-1: hsl(0, 79%, 64%);
+    --red-1-light: hsl(0, 79%, 95%);
+    --red-1-hover: hsl(0, 79%, 72%);
+    --red-1-active: hsl(0, 79%, 56%);
+
+    --green-1: #219653;
+    --green-2: #27AE60;
+    --green-3: #6FCF97;
+}

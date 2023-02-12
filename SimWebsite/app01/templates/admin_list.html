@@ -1,0 +1,69 @@
+{% extends 'index_layout.html' %}
+{% block title %}用户管理系统 | 管理员管理{% endblock %}
+{% block content %}
+<div>
+    <div class="container">
+  
+        <!-- 功能面板-新建-搜索 -->
+        <div style="margin-bottom: 10px" class="clearfix">
+            <!-- 按钮-新建管理员 -->
+            <a class="btn btn-success btn-primary" href="/admin/add/">
+              <span class="glyphicon glyphicon-plus-sign" style="padding-right: 5px;" aria-hidden="true"></span>新建管理员</a>
+            <!-- 组件-搜索组件 -->
+            <form class="input-group" method="get" style="float: right; width: 30%;" role="search">
+              <input type="text" class="form-control" placeholder="搜索管理员账户" name="q" value="{{ search_data }}">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+              </span>
+            </form>
+            
+        </div>
+
+
+        <!-- 表格面板 -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                管理员列表
+            </div>
+            <div class="panel-body">
+                <span>当前搜索：{{ search_data }}</span>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for obj in data_table %}
+                  <tr>
+                    <th scope="row">{{ obj.id }}</th>
+                    <td>{{ obj.username }}</td>
+                    <td>******</td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/">编辑</a>
+                        <a class="btn btn-danger btn-xs" href="/admin/{{ obj.id }}/delete/">删除</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+
+        <!-- 分页组件 -->
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            {{ page_string }}
+          </ul>
+        </nav>
+
+        
+    </div>
+  </div>
+{% endblock %}
