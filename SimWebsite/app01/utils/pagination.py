@@ -72,7 +72,6 @@ class Pagination(object):
         # 分页起始位置
         self.page_start = (page - 1) * page_size
         self.page_end = page * page_size
-        print(self.page_start, self.page_end)
         self.page_queryset = queryset[self.page_start:self.page_end]
 
         # 数据总条数
@@ -80,7 +79,6 @@ class Pagination(object):
 
         # 总页码
         total_page_count, div = divmod(total_count, page_size)
-        print(div)
         if div:
             total_page_count += 1
         self.total_page_count = total_page_count

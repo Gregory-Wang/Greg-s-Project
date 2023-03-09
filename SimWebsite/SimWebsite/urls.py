@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app01 import views
-from app01.views import depart, user, number, admin
+from app01.views import depart, user, number, admin, account, task, order
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -39,4 +39,24 @@ urlpatterns = [
     # 管理员管理
     path('admin/list/', admin.admin_list),
     path('admin/add/', admin.admin_add),
+    path('admin/<int:nid>/edit/', admin.admin_edit),
+    path('admin/<int:nid>/delete/', admin.admin_delete),
+    path('admin/<int:nid>/reset/', admin.admin_reset),
+
+    # 账户登录
+    path('login/', account.login),
+    path('logout/', account.logout),
+    path('image/code/', account.image_code),
+
+    # 任务管理
+    path('task/list/', task.task_list),
+    path('task/add/', task.task_add),
+    path('task/<int:nid>/edit/', task.task_edit),
+    path('task/<int:nid>/delete/', task.task_delete),
+
+    # 订单
+    path('order/list/', order.order_list),
+    path('order/add/', order.order_add),
+    path('order/edit/', order.order_edit),
+    path('order/delete/', order.order_delete),
 ]

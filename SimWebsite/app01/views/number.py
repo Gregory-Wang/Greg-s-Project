@@ -121,7 +121,7 @@ def number_list(request):
 # 靓号修改页面
 def number_edit(request, nid):
     """ 修改用户 """
-    # 根据 nid 到数据库中获取要编辑的那一行数据(对象instance=row_object)
+    # 根据 nid 到数据库中获取要编辑的那一行数据(对象instance=row_object, 用于让编辑框显示默认值)
     row_object = models.PrettyNum.objects.filter(id=nid).first()
 
     if request.method == "GET":

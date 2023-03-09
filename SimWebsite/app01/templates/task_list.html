@@ -1,0 +1,143 @@
+{% extends 'index_layout.html' %}
+{% block title %}用户管理系统 | 任务管理{% endblock %}
+{% block content %}
+<div>
+    <div class="container">
+  
+        <!-- 功能面板-新建-搜索 -->
+        <div style="margin-bottom: 10px" class="clearfix">
+            <!-- 按钮-新建任务 -->
+            <a class="btn btn-success btn-primary" href="/task/add/">
+              <span class="glyphicon glyphicon-plus-sign" style="padding-right: 5px;" aria-hidden="true"></span>新建任务</a>
+            <!-- 组件-搜索组件 -->
+            <form class="input-group" method="get" style="float: right; width: 30%;" role="search">
+              <input type="text" class="form-control" placeholder="搜索任务" name="q" value="{{ search_data }}">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+              </span>
+            </form>
+            
+        </div>
+
+        <!-- 模态框-新建管理员 -->
+        <form id="formAdd">
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h4 class="modal-title" id="myModalLabel">新建任务</h4>
+                </div>
+
+                <div class="panel-body">
+                    <div class="clearfix">
+                        {% for field in form %}
+                        <div class="col-xs-6">
+                            <div class="form-group" style="position: relative; margin-bottom: 28px;">
+                                <label for="admin-id-input" class="control-label">{{ field.label }}</label>
+                                {{ field }}
+                                <span class="error-msg" style="color: red; position: absolute;"></span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                  <button type="button" id="btnAdd" class="btn btn-primary">保存</button>
+                </div>
+
+            </div>
+        </form>
+
+        <!-- 表格面板 -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                任务列表
+            </div>
+            <div class="panel-body">
+                <span>当前搜索：{{ search_data }}</span>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>任务标题</th>
+                    <th>详情信息</th>
+                    <th>级别</th>
+                    <th>负责人</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for obj in data_table %}
+                  <tr>
+                    <th scope="row">{{ obj.id }}</th>
+                    <td>{{ obj.title }}</td>
+                    <td>{{ obj.detail }}</td>
+                    <td>{{ obj.get_level_display }}</td>
+                    <td>{{ obj.user }}</td>
+                    <!-- <td>******</td> -->
+                    <td>
+                        <a class="btn btn-primary btn-xs" href="/task/{{ obj.id }}/edit/">编辑</a>
+                        <a class="btn btn-danger btn-xs" href="/task/{{ obj.id }}/delete/">删除</a>
+                        
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+
+        <!-- 分页组件 -->
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            {{ page_string }}
+          </ul>
+        </nav>
+
+        
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(function(){
+            // 页面加载完后代码自动运行
+
+            bindBtnAddEvent();
+        })
+
+        function bindBtnAddEvent(){
+            $("#btnAdd").click(function(){
+
+              // 1. 清空错误信息
+              $(".error-msg").empty();
+
+              // 2. 执行 ajax 请求
+              $.ajax({
+                    url: '/task/add/',
+                    type: "post",
+                    data: $("#formAdd").serialize(),  // serialize 传递整个 form 的数据
+                    dataType: "JSON",
+                    // 运行成功后执行
+                    success: function(res){
+                      if(res.status){
+                        alert("添加成功")
+                        // 刷新页面
+                        location.reload();
+                      }else{
+                        console.log(res.error);
+                        $.each(res.error, function(name, data){
+                          // console.log(name, data);
+                          $("#id_" + name).next().text(data[0]);
+                        })
+                      }
+                    }
+                })
+            })
+        }
+    </script>
+{% endblock %}
